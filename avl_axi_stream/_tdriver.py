@@ -18,7 +18,7 @@ class TransDriver(Driver):
 
     def __init__(self, name: str, parent: avl.Component) -> None:
         """
-        Initialize the Transmitter Driver for the AMBA agent.
+        Initialize the Transmitter Driver for the AXI-STREAM agent.
 
         :param name: Name of the agent instance
         :type name: str
@@ -57,7 +57,7 @@ class TransDriver(Driver):
 
     async def quiesce(self) -> None:
         """
-        Quiesce the driver by setting the psel signal to 0.
+        Quiesce the driver.
         This method is called when the driver is quiesced.
 
         By default calls reset() to set all signals to their default values.
@@ -76,7 +76,7 @@ class TransDriver(Driver):
     async def drive(self, item : SequenceItem) -> None:
         """
         Drive the signals based on the provided sequence item.
-        This method is called to drive the signals of the AMBA interface.
+        This method is called to drive the signals of the AXI-STREAM interface.
 
         :param item: The sequence item containing the values to drive
         :type item: SequenceItem

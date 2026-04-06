@@ -16,7 +16,7 @@ from ._item import SequenceItem
 class Monitor(avl.Monitor):
     def __init__(self, name: str, parent: avl.Component) -> None:
         """
-        Initialize the AMBA Monitor for the APB agent.
+        Initialize the Monitor for the AXI-STREAM agent.
 
         :param name: Name of the agent instance
         :type name: str
@@ -31,7 +31,7 @@ class Monitor(avl.Monitor):
 
     async def monitor(self) -> None:
         """
-        Monitor the APB bus signals and create sequence items based on the activity.
+        Monitor the AXI-STREAM bus signals and create sequence items based on the activity.
         This method is called to monitor the bus signals and create sequence items
         when there is activity on the bus.
         """

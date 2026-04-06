@@ -17,7 +17,7 @@ class Driver(avl.Driver):
 
     def __init__(self, name: str, parent: avl.Component) -> None:
         """
-        Initialize the Driver for the APB agent.
+        Initialize the Driver for the AXI-STREAM agent.
 
         :param name: Name of the agent instance
         :type name: str
@@ -61,7 +61,7 @@ class Driver(avl.Driver):
 
     async def quiesce(self) -> None:
         """
-        Quiesce the driver by setting the psel signal to 0.
+        Quiesce the driver.
         This method is called when the driver is quiesced.
 
         By default calls reset() to set all signals to their default values.
@@ -73,7 +73,7 @@ class Driver(avl.Driver):
     async def drive(self, item : SequenceItem) -> None:
         """
         Drive the signals based on the provided sequence item.
-        This method is called to drive the signals of the APB interface.
+        This method is called to drive the signals of the AXI-STREAM interface.
 
         :param item: The sequence item containing the values to drive
         :type item: SequenceItem
@@ -87,7 +87,7 @@ class Driver(avl.Driver):
         For the Request driver this method retrieves the next sequence item from the sequencer or
         the previously reset interrupted item.
 
-        The implementation ensures items are driven on the rising edge of pclk, when not in reset,
+        The implementation ensures items are driven on the rising edge of aclk, when not in reset,
         while allowing for back-to-back requests if the sequencer provides them.
 
         For the completion driver this method adjusts the completion side of the observed request.

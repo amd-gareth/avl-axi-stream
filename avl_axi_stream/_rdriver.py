@@ -17,7 +17,7 @@ class RecDriver(Driver):
 
     def __init__(self, name: str, parent: avl.Component) -> None:
         """
-        Initialize the Receiver Driver for the AMBA agent.
+        Initialize the Receiver Driver for the AXI-STREAM agent.
 
         :param name: Name of the agent instance
         :type name: str
@@ -42,7 +42,7 @@ class RecDriver(Driver):
     async def drive(self, item : SequenceItem) -> None:
         """
         Drive the signals based on the provided sequence item.
-        This method is called to drive the signals of the AMBA interface.
+        This method is called to drive the signals of the AXI-STREAM interface.
 
         :param item: The sequence item containing the values to drive
         :type item: SequenceItem
@@ -74,7 +74,7 @@ class RecDriver(Driver):
         """
         Get the next sequence item.
 
-        The implementation ensures items are driven on the rising edge of pclk, when not in reset,
+        The implementation ensures items are driven on the rising edge of aclk, when not in reset,
         while allowing for back-to-back requests if the sequencer provides them.
 
         :param item: The sequence item to retrieve, defaults to None
